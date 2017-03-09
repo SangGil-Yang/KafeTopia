@@ -19,7 +19,7 @@ public class ReviewBoardDAO {
 			// seq, author, cafeid, title, content, img
 			//날짜가 없어...
 			pstmt = con.prepareStatement("INSERT INTO ReviewBoard(author, cafeid, title, content, img) VALUES(?,?,?,?,?)");
-	        pstmt.setString(1, );
+	        pstmt.setString(1, vo.getAuthor());
 	        pstmt.setString(2,vo.getCafeid());
 	        pstmt.setString(3, vo.getTitle());
 	        pstmt.setString(4, vo.getContent());
