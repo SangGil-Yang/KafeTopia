@@ -1,6 +1,6 @@
 package model.domain.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ReviewBoard {
 	private int seq;				//seq
@@ -11,8 +11,7 @@ public class ReviewBoard {
 	private int count;			//조회수
 	private int likecount;		//좋아요수
 	private String img;		//이미지
-	private Date date;		//날짜
-	
+	private Timestamp date;		//날짜
 	
 	public ReviewBoard(String author, String cafeid, String title, String content, String img) {
 		this.author = author;
@@ -23,7 +22,7 @@ public class ReviewBoard {
 	}
 
 	public ReviewBoard(int seq, String author, String cafeid, String title, String content, int count, int likecount,
-			String img, Date date) {
+			String img, Timestamp date) {
 		this.seq = seq;
 		this.author = author;
 		this.cafeid = cafeid;
@@ -83,10 +82,10 @@ public class ReviewBoard {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 	

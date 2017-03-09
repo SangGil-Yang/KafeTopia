@@ -19,13 +19,14 @@ public class ReviewBoardController {
 		}
 
 		//리뷰 작성 화면[WriteReview.jsp], 리뷰 작성완료 누르면 ReviewBoard.jsp로 넘어가야함
-		@RequestMapping(value="write")
+		@RequestMapping(value="board/write.do")
 		protected ModelAndView write(@RequestParam(value="author") String author,
 				@RequestParam(value="cafeid") String cafeid, @RequestParam(value="title") String title,
 				@RequestParam(value="content") String content, @RequestParam(value="img") String img) throws Exception {
 
 			ModelAndView mv = new ModelAndView();
-			if(author == null || cafeid == null || title.trim().length() == 0 || content.trim().length() == 0){
+			if(author == null || author.trim().length() == 0 || cafeid == null || cafeid.trim().length() == 0 || 
+					title == null || title.trim().length() == 0 || content == null || content.trim().length() == 0){
 				mv.setViewName("WriteReview");
 			}
 			
@@ -38,7 +39,7 @@ public class ReviewBoardController {
 		}
 		
 		//ㄹㅣ뷰 리스트 출력 화면[ReviewBoard.jsp]
-		@RequestMapping(value="list")
+		@RequestMapping(value="board/list.do")
 		public ModelAndView list() throws Exception {
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("ReviewBoard");

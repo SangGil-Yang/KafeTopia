@@ -7,19 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.domain.dto.ReviewBoard;
+import util.DBUtil;
 
 public class ReviewBoardDAO {
 	//게시물 등록
-	public static boolean writeContent(ReviewBoard vo){
+	public static boolean writeContent(ReviewBoard vo) throws SQLException{
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		boolean result = false;
 		try {
 			con = DBUtil.getConnection();
-			// seq, author, cafeid, title, content, img
-			//날짜가 없어...
 			pstmt = con.prepareStatement("INSERT INTO ReviewBoard(author, cafeid, title, content, count, likecount, img, date) "
-					+ "																				VALUES(?, ?, ?, ?, 0, 0, ?, now())");
+					+ "																	VALUES(?, ?, ?, ?, 0, 0, ?, now())");
 	        pstmt.setString(1, vo.getAuthor());
 	        pstmt.setString(2, vo.getCafeid());
 	        pstmt.setString(3, vo.getTitle());
@@ -30,7 +29,7 @@ public class ReviewBoardDAO {
 				result = true;
 			}
 		}finally{
-			DBUtil.close(pstmt, con);
+			DBUtil.close(con, pstmt);
 		}
 		return result;		
 	}
@@ -63,10 +62,10 @@ public class ReviewBoardDAO {
 				if(rset.next()){
 					vo = new ReviewBoard(seq, rset.getString(1), rset.getString(2), rset.getString(3), 
 							rset.getString(4).replaceAll("</n>","<br>"), rset.getInt(5), rset.getInt(6), 
-							rset.getString(7), rset.getDate(8));
+							rset.getString(7), rset.getTimestamp(8));
 				}
 			}finally{
-				DBUtil.close(pstmt, con);
+				DBUtil.close(con, pstmt);
 			}
 			return vo;
 		}
@@ -129,10 +128,10 @@ public class ReviewBoardDAO {
 				while(rset.next()){
 					alist.add(new ReviewBoard(rset.getInt(1),rset.getString(2), rset.getString(3),
 							rset.getString(4),rset.getString(5),rset.getInt(6),
-							rset.getInt(7),rset.getString(8), rset.getDate(9)));
+							rset.getInt(7),rset.getString(8), rset.getTimestamp(9)));
 				}
 			}finally{
-				DBUtil.close(rset, pstmt, con);
+				DBUtil.close(con, pstmt, rset);
 			}
 			return alist;
 		}
