@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form action = "login/loginProcess.do" >
+		ID <input type = "text" name="id">
+		비밀번호 <input type = "text" name="pw">
+	</form>
 
 </body>
 </html>

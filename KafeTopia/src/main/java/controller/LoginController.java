@@ -16,16 +16,16 @@ import model.domain.dto.Member;
 public class LoginController {
 	
 	//회원가입 처리
-	@RequestMapping(value = "memberInsert.do", method = RequestMethod.POST)
+	@RequestMapping(value = "login/memberInsert.do", method = RequestMethod.POST)
 	public String memberInsert(Member member) throws Exception {
 		
 		MemberDAO.addMember(member);
 		
-		return "redirect:index.html";
+		return "redirect:index.jsp";
 	}
 	
 	//로그인 처리
-	@RequestMapping(value = "loginProcess.do", method = RequestMethod.POST)
+	@RequestMapping(value = "login/loginProcess.do", method = RequestMethod.POST)
 	public String loginProcess(Member member, HttpSession session) throws Exception {
 		
 		Member loginUser = MemberDAO.findByUserIdAndPw(member.getId(), member.getPw());
@@ -33,9 +33,20 @@ public class LoginController {
 		if(loginUser != null) {
 			session.setAttribute("userLoginInfo", loginUser);
 		}
-		return "redirect:index.html";
+		
+		return "redirect:index.jsp";
+	}
+
+	//로그아웃
+	@RequestMapping(value = "login/logout.do", method = RequestMethod.POST)
+	public String logout(HttpSession session) throws Exception {
+		
+		session.setAttribute("userLoginInfo", null);
+		
+		return "redirect:index.jsp";
 	}
 	
+	//회원 정보 수정
 	
 	
 	
