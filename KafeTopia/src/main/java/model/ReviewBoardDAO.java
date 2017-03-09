@@ -7,20 +7,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.domain.dto.ReviewBoard;
+import util.DBUtil;
 
 public class ReviewBoardDAO {
 	//게시물 등록
-	public static boolean writeContent(ReviewBoard vo){
+	public static boolean writeContent(ReviewBoard vo) throws SQLException{
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		boolean result = false;
 		try {
 			con = DBUtil.getConnection();
-			// seq, author, cafeid, title, content, img
-			//날짜가 없어...
-			pstmt = con.prepareStatement("INSERT INTO ReviewBoard(author, cafeid, title, content, img) VALUES(?,?,?,?,?)");
+			pstmt = con.prepareStatement("INSERT INTO ReviewBoard(author, cafeid, title, content, count, likecount, img, date) "
+					+ "																	VALUES(?, ?, ?, ?, 0, 0, ?, now())");
 	        pstmt.setString(1, vo.getAuthor());
-	        pstmt.setString(2,vo.getCafeid());
+	        pstmt.setString(2, vo.getCafeid());
 	        pstmt.setString(3, vo.getTitle());
 	        pstmt.setString(4, vo.getContent());
 	        pstmt.setString(5, vo.getImg());
@@ -29,7 +29,7 @@ public class ReviewBoardDAO {
 				result = true;
 			}
 		}finally{
-			DBUtil.close(pstmt, con);
+			DBUtil.close(con, pstmt);
 		}
 		return result;		
 	}
@@ -43,7 +43,7 @@ public class ReviewBoardDAO {
 			
 			String sql1="UPDATE ReviewBoard set count = count+1 WHERE seq=?";	
 			//to_char(writeday,'yyyy/mm/dd hh24:mi:ss'), 
-			String sql2="SELECT author,vafeid, title, content, count, likecount, img from ReviewBoard WHERE seq=?";
+			String sql2="SELECT author,vafeid, title, content, count, likecount, img, date from ReviewBoard WHERE seq=?";
 
 			try {
 				con = DBUtil.getConnection();
@@ -61,10 +61,11 @@ public class ReviewBoardDAO {
 				
 				if(rset.next()){
 					vo = new ReviewBoard(seq, rset.getString(1), rset.getString(2), rset.getString(3), 
-							rset.getString(4).replaceAll("</n>","<br>"), rset.getInt(5), rset.getInt(6), rset.getString(7));
+							rset.getString(4).replaceAll("</n>","<br>"), rset.getInt(5), rset.getInt(6), 
+							rset.getString(7), rset.getTimestamp(8));
 				}
 			}finally{
-				DBUtil.close(pstmt, con);
+				DBUtil.close(con, pstmt);
 			}
 			return vo;
 		}
@@ -118,17 +119,20 @@ public class ReviewBoardDAO {
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			ArrayList<ReviewBoard> alist = null;
-			String sql="SELECT seq, author, cafeid, title, content, count, likecount " + "to_char(writeday,'yyyy/mm/dd hh24:mi:ss')," + "from ReviewBoard order by seq desc";	
+			String sql="SELECT seq, author, cafeid, title, content, count, likecount, date FROM ReviewBoard order by seq desc";	
 			try {
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement(sql);
 				rset = pstmt.executeQuery();
 				alist = new ArrayList<ReviewBoard>();
 				while(rset.next()){
-					alist.add(new ReviewBoard(rset.getInt(1),rset.getString(2), rset.getString(3),rset.getString(4),rset.getString(5),rset.getInt(6),rset.getInt(7),rset.getString(8)));
+					alist.add(new ReviewBoard(rset.getInt(1),rset.getString(2), rset.getString(3),
+							rset.getString(4),rset.getString(5),rset.getInt(6),
+							rset.getInt(7), rset.getTimestamp(8)));
 				}
+				System.out.println(alist);
 			}finally{
-				DBUtil.close(rset, pstmt, con);
+				DBUtil.close(con, pstmt, rset);
 			}
 			return alist;
 		}
