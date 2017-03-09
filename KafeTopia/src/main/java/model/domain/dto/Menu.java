@@ -1,18 +1,17 @@
 package model.domain.dto;
 
 public class Menu {
-	
-	private int seq;	//seq
-	private String cafeid;	//카페id
-	private String name;	//메뉴명
-	private int price;	//가격
-	private String img;	//이미지
-	private String type;	//타입
-	private int sales;	//판매량
-	private String common;	//공통메뉴
-	
+
+	private int seq; // seq
+	private String cafeid; // 카페id
+	private String name; // 메뉴명
+	private int price; // 가격
+	private String img; // 이미지
+	private String type; // 타입
+	private int sales; // 판매량
+	private String common; // 공통메뉴
+
 	public Menu(int seq, String cafeid, String name, int price, String img, String type, int sales, String common) {
-		super();
 		this.seq = seq;
 		this.cafeid = cafeid;
 		this.name = name;

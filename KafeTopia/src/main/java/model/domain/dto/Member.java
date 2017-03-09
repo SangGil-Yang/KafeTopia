@@ -1,15 +1,14 @@
 package model.domain.dto;
 
 public class Member {
-	private String id;	// 아이디
-	private String name;	//이름
-	private String pw;	//비밀번호
-	private String email;	//이메일
-	private String tel;	//전화번호
-	private int point;	//포인트
-	
+	private String id; // 아이디
+	private String name; // 이름
+	private String pw; // 비밀번호
+	private String email; // 이메일
+	private String tel; // 전화번호
+	private int point; // 포인트
+
 	public Member(String id, String name, String pw, String email, String tel, int point) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.pw = pw;

@@ -24,7 +24,7 @@ CREATE TABLE MyHistory(
 	menu varchar(100) not null,
 	price int(10) not null default '0',
 	location varchar(30) not null,
-	date date,
+	date datetime,
 	primary key(seq),
 	foreign key(cafeid) references Cafe(cafeid),
 	foreign key(id) references Member(id)
@@ -40,7 +40,7 @@ CREATE TABLE ReviewBoard (
 	count int(10) not null default '0',
 	likecount int(10) not null default '0',
 	img varchar(100),
-	date date,
+	date datetime,
 	primary key(seq),
 	foreign key(author) references Member(id),
 	foreign key(cafeid) references Cafe(cafeid)

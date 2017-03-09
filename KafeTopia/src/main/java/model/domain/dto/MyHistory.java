@@ -1,19 +1,18 @@
 package model.domain.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class MyHistory {
-	
-	private int seq;	//seq
-	private String cafeid;	//카페id
-	private String id;	//아이디
-	private String menu;	//메뉴명
-	private int price;	//가격
-	private String location;	//매장명
-	private Date date;	//날짜
-	
-	public MyHistory(int seq, String cafeid, String id, String menu, int price, String location, Date date) {
-		super();
+
+	private int seq; // seq
+	private String cafeid; // 카페id
+	private String id; // 아이디
+	private String menu; // 메뉴명
+	private int price; // 가격
+	private String location; // 매장명
+	private Timestamp date; // 날짜
+
+	public MyHistory(int seq, String cafeid, String id, String menu, int price, String location, Timestamp date) {
 		this.seq = seq;
 		this.cafeid = cafeid;
 		this.id = id;
@@ -71,11 +70,11 @@ public class MyHistory {
 		this.location = location;
 	}
 
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 
@@ -84,4 +83,5 @@ public class MyHistory {
 		return "MyHistory [seq=" + seq + ", cafeid=" + cafeid + ", id=" + id + ", menu=" + menu + ", price=" + price
 				+ ", location=" + location + ", date=" + date + "]";
 	}
+
 }
