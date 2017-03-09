@@ -15,10 +15,10 @@ public class ReviewBoardController {
 
 
 		//예외 전담 처리 로직의 메소드
-		@ExceptionHandler(Exception.class)
-		public String exceptionProcess(Exception e){
-			return "redirect:/showError.jsp?errorMsg=" + e.getMessage();
-		}
+//		@ExceptionHandler(Exception.class)
+//		public String exceptionProcess(Exception e){
+//			return "redirect:/showError.jsp?errorMsg=" + e.getMessage();
+//		}
 
 		//리뷰 작성 화면[WriteReview.jsp], 리뷰 작성완료 누르면 ReviewBoard.jsp로 넘어가야함
 		@RequestMapping(value="board/write.do", method=RequestMethod.GET)

@@ -4,8 +4,6 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <% String url = application.getContextPath() + "/"; %>
     
-   
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,7 +37,7 @@
     <c:if test="${empty requestScope.list}">
 		<tr>
 	        <td colspan="5">
-	            <p align="center"><b><span style="font-size:9pt;">등록된 방명록이 없습니다.</span></b></p>
+	            <p align="center"><b><span style="font-size:9pt;">등록된 리뷰가 없습니다.</span></b></p>
 	        </td>
 	    </tr>
 	</c:if>
@@ -65,13 +63,10 @@
 		        </td>
 		    </tr>
 	</c:forEach>
-	
-	
    </table>
-    
     <hr>
 	<div align=right>
-	<span style="font-size:9pt;">&lt;<a href="board/write.do">글쓰기</a>&gt;</span></div>
+	<span style="font-size:9pt;">&lt;<a href="<%=url%>WriteReview.jsp">글쓰기</a>&gt;</span></div>
 	    
 </body>
 </html>
