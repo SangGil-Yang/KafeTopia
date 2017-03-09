@@ -34,6 +34,19 @@ public class ReviewBoard {
 		this.date = date;
 	}
 	
+	public ReviewBoard(int seq, String author, String cafeid, String title, String content, int count, int likecount,
+			Timestamp date) {
+		this.seq = seq;
+		this.author = author;
+		this.cafeid = cafeid;
+		this.title = title;
+		this.content = content;
+		this.count = count;
+		this.likecount = likecount;
+		this.date = date;
+	}
+
+
 	public int getSeq() {
 		return seq;
 	}

@@ -119,7 +119,7 @@ public class ReviewBoardDAO {
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			ArrayList<ReviewBoard> alist = null;
-			String sql="SELECT seq, author, cafeid, title, content, count, likecount, date" + "from ReviewBoard order by seq desc";	
+			String sql="SELECT seq, author, cafeid, title, content, count, likecount, date FROM ReviewBoard order by seq desc";	
 			try {
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement(sql);
@@ -128,8 +128,9 @@ public class ReviewBoardDAO {
 				while(rset.next()){
 					alist.add(new ReviewBoard(rset.getInt(1),rset.getString(2), rset.getString(3),
 							rset.getString(4),rset.getString(5),rset.getInt(6),
-							rset.getInt(7),rset.getString(8), rset.getTimestamp(9)));
+							rset.getInt(7), rset.getTimestamp(8)));
 				}
+				System.out.println(alist);
 			}finally{
 				DBUtil.close(con, pstmt, rset);
 			}

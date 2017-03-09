@@ -3,15 +3,17 @@ package controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.ReviewBoardDAO;
 import model.domain.dto.ReviewBoard;
 
+@Controller
 public class ReviewBoardController {
-	@Controller
-	public class ProbonoSubController {
+
+
 		//예외 전담 처리 로직의 메소드
 		@ExceptionHandler(Exception.class)
 		public String exceptionProcess(Exception e){
@@ -19,7 +21,7 @@ public class ReviewBoardController {
 		}
 
 		//리뷰 작성 화면[WriteReview.jsp], 리뷰 작성완료 누르면 ReviewBoard.jsp로 넘어가야함
-		@RequestMapping(value="board/write.do")
+		@RequestMapping(value="board/write.do", method=RequestMethod.GET)
 		protected ModelAndView write(@RequestParam(value="author") String author,
 				@RequestParam(value="cafeid") String cafeid, @RequestParam(value="title") String title,
 				@RequestParam(value="content") String content, @RequestParam(value="img") String img) throws Exception {
@@ -38,16 +40,16 @@ public class ReviewBoardController {
 			return mv;
 		}
 		
-		//ㄹㅣ뷰 리스트 출력 화면[ReviewBoard.jsp]
-		@RequestMapping(value="board/list.do")
+		//리뷰 리스트 출력 화면 [ReviewBoard.jsp]
+		@RequestMapping("board/list.do")
 		public ModelAndView list() throws Exception {
+			System.out.println("test");
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("ReviewBoard");
 			mv.addObject("list", ReviewBoardDAO.getAllContents());
 			return mv;
 		}
 		
-	}
-
+	
 }
 
