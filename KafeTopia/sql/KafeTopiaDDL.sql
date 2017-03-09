@@ -40,6 +40,7 @@ CREATE TABLE ReviewBoard (
 	count int(10) not null default '0',
 	likecount int(10) not null default '0',
 	img varchar(100),
+	date date,
 	primary key(seq),
 	foreign key(author) references Member(id),
 	foreign key(cafeid) references Cafe(cafeid)
