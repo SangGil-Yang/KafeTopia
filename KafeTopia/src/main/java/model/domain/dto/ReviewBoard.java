@@ -3,21 +3,27 @@ package model.domain.dto;
 import java.sql.Date;
 
 public class ReviewBoard {
-	
-	private int seq;	//seq
+	private int seq;				//seq
 	private String author;	//아이디
 	private String cafeid;	//카페id
-	private String title;	//제목
+	private String title;		//제목
 	private String content;	//내용
-	private int count;	//조회수
-	private int likecount;	//좋아요수
-	private String img;	//이미지
+	private int count;			//조회수
+	private int likecount;		//좋아요수
+	private String img;		//이미지
 	private Date date;		//날짜
 	
 	
+	public ReviewBoard(String author, String cafeid, String title, String content, String img) {
+		this.author = author;
+		this.cafeid = cafeid;
+		this.title = title;
+		this.content = content;
+		this.img = img;
+	}
+
 	public ReviewBoard(int seq, String author, String cafeid, String title, String content, int count, int likecount,
 			String img, Date date) {
-
 		this.seq = seq;
 		this.author = author;
 		this.cafeid = cafeid;
@@ -28,6 +34,7 @@ public class ReviewBoard {
 		this.img = img;
 		this.date = date;
 	}
+	
 	public int getSeq() {
 		return seq;
 	}
@@ -82,12 +89,11 @@ public class ReviewBoard {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
 	@Override
 	public String toString() {
 		return "ReviewBoard [seq=" + seq + ", author=" + author + ", cafeid=" + cafeid + ", title=" + title
 				+ ", content=" + content + ", count=" + count + ", likecount=" + likecount + ", img=" + img + ", date="
 				+ date + "]";
-	}
-	
-	
+	}	
 }
