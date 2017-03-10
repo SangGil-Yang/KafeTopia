@@ -8,9 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>ReviewBoard.jsp</title>
+<link href="Board.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div id="logo" class="container">
+	<h1>
+		<a href="#">Kafe Topia</a>
+	</h1>
+</div>
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
 	<tr>
         <td bgcolor="#336699">
