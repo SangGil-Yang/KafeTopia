@@ -76,7 +76,7 @@ CREATE TABLE Menu (
 
 CREATE TABLE Topping (
 	name varchar(20) not null,
-	price int(10) not null,
+	price int(10) not null default '0',
 	type varchar(50),
 	primary key(name)
 );

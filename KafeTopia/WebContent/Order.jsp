@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<% String url = application.getContextPath() + "/"; %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,5 +22,17 @@ var mapOptions = {
 
 var map = new naver.maps.Map('map', mapOptions);
 </script>
+	<c:forEach items="${menuType }" var="type">
+		<a href="<%=url %>order/menuAll.do?type=${type }">${type }<br></a> 
+	</c:forEach>
+	
+	<c:forEach items="${cafeMenu }" var="menu">
+		${menu }<br>
+	</c:forEach>
+	
+	
+	<c:forEach items="${topping }" var="topping">
+		${topping }
+	</c:forEach>
 </body>
 </html>

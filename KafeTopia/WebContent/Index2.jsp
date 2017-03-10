@@ -20,7 +20,7 @@
             <ul>
 	<c:choose>
 		<c:when test = "${empty sessionScope.userLoginInfo}">
-			<li><a href="Login.jsp">로그인</a></li>
+			<li><a href="Login2.jsp">로그인</a></li>
 			<li><a href="Join2.jsp">회원가입</a></li>
 	     </c:when>
 	     <c:otherwise>
@@ -33,13 +33,14 @@
     </div>
 
 <ul class="menu">
+	<li><b><i>Kafe Topia</i></b></li>
 	<li><a href="CafeChoice.jsp"><span>Cafe Order</span></a></li>
 	<li><a href="Order.jsp"><span>Menu Order</span></a></li>
 	<li><a href="ReviewBoard.jsp"><span>Review Board</span></a></li>
 </ul>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="index.js"></script>
+    <script src="js/index.js"></script>
 
 </div>
 </body>

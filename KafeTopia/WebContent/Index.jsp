@@ -23,7 +23,7 @@
 		<a href = "<%=url %>login/logout.do">로그아웃</a>
 	</c:otherwise>
 </c:choose>
-	<input type = "button" value = "카페별 주문" Onclick = "location.href='CafeChoice.jsp'">
+	<input type = "button" value = "카페별 주문" Onclick = "location.href='<%=url %>order/cafeAll.do'">
 	<input type = "button" value = "메뉴별 주문" Onclick = "location.href='Order.jsp'">
 	<input type = "button" value = "게시판" Onclick = "location.href='ViewReview.jsp'">
 </body>

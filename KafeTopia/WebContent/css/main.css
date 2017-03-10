@@ -21,7 +21,7 @@ body.dark {
 body ul.menu {
   position: absolute;
   height: 250px;
-  top: 50%;
+  top: 40%;
   margin-top: -125px;
   width: auto;
   margin-left: 50px;
@@ -31,8 +31,9 @@ body ul.menu li {
   list-style-type: none;
   line-height: 50px;
   font-family: 'Raleway', sans-serif;
-  font-size: 50px;
+  font-size: 100px;
   text-transform: lowercase;
+  margin-bottom:50px;
 }
 body ul.menu li:hover {
   color: #EEE;
