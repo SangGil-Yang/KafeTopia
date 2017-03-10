@@ -4,9 +4,8 @@ a:hover { color : #ffffff;}
 
 .utilMenuWrap{width:100%;}
 .utilMenu{width:100%;margin: 0 auto;overflow:hidden;}
-.utilMenu ul{overflow:hidden;float:right; list-style:none;}
-.utilMenu ul li{float:left;border-left:1px solid #576277;padding:12px;}
-.utilMenu ul li:last-child{border-right:1px solid #576277;}
+.utilMenu ul{overflow:hidden;float:right; list-style:none; margin-top:0px;}
+.utilMenu ul li{float:left; padding:12px;}
 .utilMenu ul li a{color:#000;font-size:12px;}
 
 
@@ -40,4 +39,10 @@ body ul.menu li:hover {
   cursor: pointer;
 }
 
+.main-name {
+  line-height: 100%;
+  font-weight: 600;
+  font-size: 28px;
+  text-transform: uppercase;
+}
 
