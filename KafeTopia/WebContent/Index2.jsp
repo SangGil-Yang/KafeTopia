@@ -20,7 +20,7 @@
             <ul>
 	<c:choose>
 		<c:when test = "${empty sessionScope.userLoginInfo}">
-			<li><a href="Login.jsp">로그인</a></li>
+			<li><a href="Login2.jsp">로그인</a></li>
 			<li><a href="Join2.jsp">회원가입</a></li>
 	     </c:when>
 	     <c:otherwise>

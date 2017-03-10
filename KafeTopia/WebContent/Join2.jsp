@@ -10,14 +10,25 @@
 <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'>
 <link rel="stylesheet" href="css/join.css">
 
+
 </head>
 <body>
 
 <div class="join-content">
-	<h1 class="main-heading">Join</h1>
-	<h3></h3>
+	<h1 class="main-heading">Signup Now</h1>
+	<h3 class="blurb">Creating an account is free คั</h3>
+	<form class="signup-form" method="post" action="#" novalidate="novalidate">
+      <label for="signup-name">Full Name</label>
+      <input id="signup-name" type="text" name="name" autocomplete="off"/>
+      <label for="signup-email">Email Address</label>
+      <input id="signup-email" type="email" name="email" autocomplete="off"/>
+      <label for="signup-pw">Password</label>
+      <input id="signup-pw" type="password" name="pw" autocomplete="off"/>
+      <label for="signup-cpw">Confirm Password</label>
+      <input id="signup-cpw" type="password" name="cpw" autocomplete="off"/>
+      <button class="btn btn-outline submit-btn"><span>signup</span></button>
+    </form>
 </div>
-
 
 </body>
 </html>
