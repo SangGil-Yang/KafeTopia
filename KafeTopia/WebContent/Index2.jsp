@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 	 <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
-     <link rel="stylesheet" href="main.css">
+     <link rel="stylesheet" href="css/main.css">
 <title>KafeTopia</title>
 
 </head>
@@ -21,7 +21,7 @@
 	<c:choose>
 		<c:when test = "${empty sessionScope.userLoginInfo}">
 			<li><a href="Login.jsp">로그인</a></li>
-			<li><a href="Join.jsp">회원가입</a></li>
+			<li><a href="Join2.jsp">회원가입</a></li>
 	     </c:when>
 	     <c:otherwise>
 	    	<li><a href="<%=url %>login/logout.do">로그아웃</a></li>

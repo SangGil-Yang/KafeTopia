@@ -1,0 +1,20 @@
+@CHARSET "EUC-KR";
+body{
+	margin-left:0px; margin-right:0px; margin-bottom:0px;	margin-left:0px;
+	background-color: #EEE; -webkit-text-size-adjust:none;
+}
+
+div.join-content{
+  position:absolute;
+  top:50%; left:50%;
+  margin:-210px 0 0 -290px;
+  width:540px; height:380px;
+  padding: 10px;
+}
+
+.main-heading {
+  line-height: 100%;
+  font-weight: 600;
+  font-size: 28px;
+  text-transform: uppercase;
+}
