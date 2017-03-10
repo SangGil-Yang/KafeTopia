@@ -18,14 +18,16 @@
 	<h1 class="main-heading">Signup Now</h1>
 	<h3 class="blurb">Creating an account is free คั</h3>
 	<form class="signup-form" method="post" action="#" novalidate="novalidate">
-      <label for="signup-name">Full Name</label>
+      <label for="signup-name">Name</label>
       <input id="signup-name" type="text" name="name" autocomplete="off"/>
-      <label for="signup-email">Email Address</label>
-      <input id="signup-email" type="email" name="email" autocomplete="off"/>
+      <label for="signup-email">ID</label>
+      <input id="signup-email" type="text" name="id" autocomplete="off"/>
       <label for="signup-pw">Password</label>
       <input id="signup-pw" type="password" name="pw" autocomplete="off"/>
-      <label for="signup-cpw">Confirm Password</label>
-      <input id="signup-cpw" type="password" name="cpw" autocomplete="off"/>
+      <label for="signup-cpw">Email</label>
+      <input id="signup-cpw" type="text" name="email" autocomplete="off"/>
+       <label for="signup-cpw">Phone Number</label>
+      <input id="signup-cpw" type="text" name="tel" autocomplete="off"/>
       <button class="btn btn-outline submit-btn"><span>signup</span></button>
     </form>
 </div>
